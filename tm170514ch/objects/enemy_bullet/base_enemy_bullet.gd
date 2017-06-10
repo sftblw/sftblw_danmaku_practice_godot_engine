@@ -5,7 +5,6 @@ extends "res://objects/actor/actor.gd"
 var _pos = Vector2(0, 0) setget set_pos, get_pos
 var _rot = 0 setget set_rot, get_rot
 var bullets_manager = null
-const SHAPE = null
 
 func set_pos(pos): _pos = pos
 func get_pos(): return _pos
@@ -15,7 +14,12 @@ func set_rotd(degree): _rot = deg2rad(degree)
 func get_rotd(): return rad2deg(_rot)
 
 const _texture = null
+const _shape = null
+var _body = RID() setget set_body, get_body
 func get_texture(): return _texture
+func get_shape(): return _shape
+func set_body(body): _body = body
+func get_body(): return _body
 
 ## process
 func process_job(delta):
@@ -40,13 +44,35 @@ func fire( bullet_class, rotd, speed, pos = null ):
 		bullets_manager.add_bullet(bullet)
 	else:
 		print("base_enemy_bullet.gd.fire(): extends nothing")
-		
+	
+	bullet.fired()
+	
+	return bullet
+
+func fired():
+	set_body( Physics2DServer.body_create(Physics2DServer.BODY_MODE_KINEMATIC) )
+	Physics2DServer.body_set_space(get_body(), bullets_manager.get_world_2d().get_space())
+	Physics2DServer.body_add_shape(get_body(), get_shape().get_rid())
+	
+	Physics2DServer.body_set_layer_mask( get_body(), 8 )
+	Physics2DServer.body_set_collision_mask( get_body(), 0 ) # mask layer 4 (1, 2, 4, 8의 8)
+	process_collision()
+
 func draw_to(canvas_item):
 	var texture_offset = -get_texture().get_size()*0.5
 	canvas_item.draw_set_transform(get_pos(), get_rot(), Vector2(1, 1))
 	canvas_item.draw_texture(get_texture(), texture_offset)
 	# TODO: 각도 반영
 
+## original functions
+
+func process_collision():
+	var mat = Matrix32()
+	mat.o = get_pos()
+	mat = mat.rotated( get_rot() )
+	Physics2DServer.body_set_state(get_body(), Physics2DServer.BODY_STATE_TRANSFORM, mat)
+
 # TODO
 func queue_free():
-  bullets_manager.remove_bullet(self)
+	bullets_manager.remove_bullet(self)
+	Physics2DServer.free_rid(get_body())

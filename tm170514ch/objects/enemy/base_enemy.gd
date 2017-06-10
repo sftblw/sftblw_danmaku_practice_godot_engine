@@ -36,7 +36,9 @@ func fire( bullet_class, rotd, speed, pos = null ):
 		bullets_manager.add_bullet(bullet)
 	else:
 		print("base_enemy.gd.fire(): extends nothing")
-		
+	
+	bullet.fired()
+	
 	return bullet
 	
 ## event handlers

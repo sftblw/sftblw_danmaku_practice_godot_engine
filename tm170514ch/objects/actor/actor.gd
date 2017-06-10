@@ -36,6 +36,10 @@ func fire( bullet_class, rotd, speed, pos ):
 	bullet.set_rotd( rotd )
 
 	return bullet
+	
+func fired(): # 모든 의존성 설정이 다 끝난 뒤의 초기화용 함수.
+	pass
+
 ## utilities
 
 # 일정시간 후에 job_idx += 1

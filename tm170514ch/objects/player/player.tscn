@@ -130,6 +130,6 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[connection signal="body_enter" from="core_area" to="." method="__check_hit"]
+[connection signal="body_enter_shape" from="core_area" to="." method="__hit_bullet"]
 
 

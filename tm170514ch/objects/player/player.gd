@@ -44,9 +44,9 @@ func __shoot(delta):
 		
 		shoot_timer += SHOOT_INTERVAL
 	
-# enemy_bullet 의 시그널 body_enter 를 받아 처리
-func __check_hit(area):
-	if !is_fixed_processing() or (get_node("anim").is_playing() and get_node("anim").get_current_animation() == "dead" ): return
-	if area extends preload("res://objects/enemy_bullet/base_enemy_bullet.gd"):
-		set_fixed_process(false)
-		get_node("anim").play("dead")
+# 마스크 4에 충돌이 일어난 경우 그냥 죽은 걸로 가정.
+# 신호 body_enter_shape()를 처리.
+func __hit_bullet( body_id, body, body_shape, area_shape ):
+	if !is_fixed_processing() or (get_node("anim").is_playing()	and get_node("anim").get_current_animation() == "dead" ): return
+	set_fixed_process(false)
+	get_node("anim").play("dead")
