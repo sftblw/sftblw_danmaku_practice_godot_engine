@@ -13,11 +13,12 @@ func process_job(delta):
 	if job_idx == 2:
 		set_speed( 0 )
 		# 임시로 여러개 생성
-		for idx in range(0, 4): # TODO: caster 노드 생성 및 구현해서 대체
-			fire( preload("res://objects/enemy_bullet/diamond_enemy_bullet.gd"), cast_angle_last * 360 / 500.0, 120)
+		for idx in range(0, 3): # TODO: caster 노드 생성 및 구현해서 대체
+			fire( preload("res://objects/enemy_bullet/diamond_enemy_bullet.gd"), cast_angle_last * 360 / 500.0, 80)
+			#fire( preload("res://objects/enemy/enemy.tscn"), cast_angle_last * 360 / 500.0, 120)
 			cast_angle_last += 360/3 + additive_last
 		additive_last += 0.1
-		wait_and_next(4, delta)
+		wait_and_next(6, delta)
 	if job_idx == 3:
 		set_speed( 50 )
 		set_rotd( -45 )
