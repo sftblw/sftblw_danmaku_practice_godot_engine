@@ -4,7 +4,8 @@ extends "res://objects/actor/actor.gd"
 
 var _pos = Vector2(0, 0) setget set_pos, get_pos
 var _rot = 0 setget set_rot, get_rot
-var bullet_manager = null
+var bullets_manager = null
+const SHAPE = null
 
 func set_pos(pos): _pos = pos
 func get_pos(): return _pos
@@ -13,11 +14,8 @@ func get_rot(): return _rot
 func set_rotd(degree): _rot = deg2rad(degree)
 func get_rotd(): return rad2deg(_rot)
 
-const _texture = preload("res://objects/enemy_bullet/enemy_bullet.png")
+const _texture = null
 func get_texture(): return _texture
-
-
-var bullets_manager = null
 
 ## process
 func process_job(delta):
