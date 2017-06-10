@@ -1,0 +1,1 @@
+extends "res://objects/enemy_bullet/base_enemy_bullet.gd"

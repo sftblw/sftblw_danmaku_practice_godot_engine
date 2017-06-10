@@ -19,7 +19,6 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-SPEED = 100
 HP = 10
 
 [node name="enemy_sprite" type="Sprite" parent="."]

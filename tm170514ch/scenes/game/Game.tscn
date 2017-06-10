@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=1]
 [ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/enemy/enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/game/bg.png" type="Texture" id=4]
+[ext_resource path="res://scenes/game/bullets_manager.gd" type="Script" id=4]
+[ext_resource path="res://scenes/game/bg.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -96,6 +97,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="bullets_manager" type="Node2D" parent="layer_enemy_bullet"]
+
+script/script = ExtResource( 4 )
+
 [node name="layer_UI" type="Node2D" parent="."]
 
 editor/display_folded = true
@@ -105,7 +110,7 @@ __meta__ = {
 
 [node name="cage_image" type="Sprite" parent="layer_UI"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 __meta__ = {
 "_edit_lock_": true

@@ -1,34 +1,45 @@
-extends Node2D
+## variables
 
-export(int) var SPEED = 100
+# var _pos (Node2D / custom)
+# var _rot (Node2D / custom)
+var _speed = 100 setget set_speed, get_speed
+func set_speed(speed): _speed = speed
+func get_speed(): return _speed
 var TIMER = 0
 var job_idx = 0
 
-func _ready():
-	set_fixed_process(true)
+## process
 
-func _fixed_process(delta):
-	__process_job(delta)
+# virtual method
+# func process_job(delta):
 
-func __process_job(delta):
-	__move(delta)
+## basic memeber functions
 
-# 이하 enemy_bullet 으로부터 기본적인 움직임에 관해	
-
-func __move(delta):
+func _move(delta):
 	var rot = get_rot()
 	var angle_vec = Vector2( cos(rot), -sin(rot) ).normalized()
 	
-	set_pos( get_pos() + angle_vec * SPEED * delta )
+	set_pos( get_pos() + angle_vec * get_speed() * delta )
 
-func __set_speed(speed):
-	SPEED = speed
+func fire( bullet_class, rotd, speed, pos ):
+	var bullet
+	if bullet_class extends Node2D:
+		bullet = bullet_class.instance()
+	elif bullet_class extends Script:
+		bullet = bullet_class.new()
+	
+	# set pos, speed, angle
+	bullet.set_pos( pos )
+	bullet.set_speed( speed )
+	bullet.set_rotd( rotd )
 
-func __set_angle(angle):
-	set_rotd(angle)
+	return bullet
+## utilities
 
+# 일정시간 후에 job_idx += 1
+# 시간동안 지속적으로 호출해야 함
 var WAIT_ENABLED = false
-func __wait_and_next(time, delta):
+func wait_and_next(time, delta):
 	if TIMER <= 0:
 		if WAIT_ENABLED:
 			job_idx += 1
@@ -37,19 +48,3 @@ func __wait_and_next(time, delta):
 			TIMER += time
 			WAIT_ENABLED = true
 	else: TIMER -= delta
-
-func fire( bullet_class, angle, speed ):
-	var shot_pos
-	if get_node("shot_pos") == null:
-		shot_pos = get_pos()
-	else:
-		shot_pos = get_node("shot_pos").get_global_pos()
-	
-	var bullet = bullet_class.instance()
-	# set pos, speed, angle
-	bullet.set_pos( shot_pos )
-	bullet.__set_speed( speed )
-	bullet.__set_angle( angle )
-	
-	# add as child of bullet layer
-	get_tree().get_root().get_node("Game/layer_enemy_bullet").add_child(bullet)

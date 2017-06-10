@@ -47,6 +47,6 @@ func __shoot(delta):
 # enemy_bullet 의 시그널 body_enter 를 받아 처리
 func __check_hit(area):
 	if !is_fixed_processing() or (get_node("anim").is_playing() and get_node("anim").get_current_animation() == "dead" ): return
-	if area extends preload("res://objects/enemy_bullet/enemy_bullet.gd"):
+	if area extends preload("res://objects/enemy_bullet/base_enemy_bullet.gd"):
 		set_fixed_process(false)
 		get_node("anim").play("dead")
