@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=1]
+
+[ext_resource path="res://objects/player/player.gd" type="Script" id=1]
+[ext_resource path="res://objects/player_bullet/player_bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/player/player.png" type="Texture" id=3]
+[ext_resource path="res://objects/player/player_core.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 27.8355, 27.9039 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 2.14833
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "dead"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.5, 1 ),
+"transitions": FloatArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 2, 1e-05 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 1 ),
+"transitions": FloatArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 1 ),
+"transitions": FloatArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free()"
+} ]
+}
+
+[node name="player" type="KinematicBody2D"]
+
+transform/pos = Vector2( 672, 640 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1024
+collision/mask = 1024
+collision/margin = 0.08
+script/script = ExtResource( 1 )
+SPEED_FAST = 300
+SPEED_SLOW = 200
+SHOOT_INTERVAL = 0.1
+SHOOT_CLASS = ExtResource( 2 )
+
+[node name="player_ship" type="Sprite" parent="."]
+
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="player_core" type="Sprite" parent="."]
+
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shape_ship" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="core_area" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision/layers = 0
+collision/mask = 8
+
+[node name="shape_core" type="CollisionShape2D" parent="core_area"]
+
+shape = SubResource( 2 )
+trigger = true
+_update_shape_index = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="shoot_from" type="Position2D" parent="."]
+
+transform/pos = Vector2( 0, -32 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/dead = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[connection signal="body_enter" from="core_area" to="." method="__check_hit"]
+
+
