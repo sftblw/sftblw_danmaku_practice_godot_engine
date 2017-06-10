@@ -23,10 +23,12 @@ func _move(delta):
 
 func fire( bullet_class, rotd, speed, pos ):
 	var bullet
-	if bullet_class extends Node2D:
+	if bullet_class extends PackedScene:
 		bullet = bullet_class.instance()
 	elif bullet_class extends Script:
 		bullet = bullet_class.new()
+	else:
+		print("error: extends nothing")
 	
 	# set pos, speed, angle
 	bullet.set_pos( pos )

@@ -29,12 +29,14 @@ func fire( bullet_class, rotd, speed, pos = null ):
 	var bullet = .fire( bullet_class, rotd, speed, pos )
 
 	# add as child of bullet layer
-	if bullet_class extends base_enemy_class:
+	if bullet extends base_enemy_class:
 		get_tree().get_root().get_node("Game/layer_enemy_bullet").add_child(bullet)
-	elif bullet_class extends base_enemy_bullet_class:
-		bullet.bullets_manager = self.bullet_manager
+	elif bullet extends base_enemy_bullet_class:
+		bullet.bullets_manager = self.bullets_manager
 		bullets_manager.add_bullet(bullet)
-
+	else:
+		print("base_enemy.gd.fire(): extends nothing")
+		
 	return bullet
 	
 ## event handlers
