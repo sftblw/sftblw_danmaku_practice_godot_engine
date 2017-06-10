@@ -41,7 +41,7 @@ func fire( bullet_class, rotd, speed, pos = null ):
 	
 ## event handlers
 
-func deal_damage(damage):	
+func __deal_damage(damage):	
 	HP -= damage
 	
 	if HP <= 0:
