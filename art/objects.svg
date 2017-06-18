@@ -95,8 +95,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.959798"
-     inkscape:cx="195.93169"
-     inkscape:cy="6.7791788"
+     inkscape:cx="166.76354"
+     inkscape:cy="19.406086"
      inkscape:document-units="mm"
      inkscape:current-layer="g5172"
      showgrid="true"
@@ -120,7 +120,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -196,7 +196,9 @@
       <g
          id="g5176"
          inkscape:export-xdpi="96"
-         inkscape:export-ydpi="96">
+         inkscape:export-ydpi="96"
+         transform="rotate(90,62.441664,288.53334)"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet.png">
         <path
            sodipodi:nodetypes="ccccccc"
            inkscape:connector-curvature="0"

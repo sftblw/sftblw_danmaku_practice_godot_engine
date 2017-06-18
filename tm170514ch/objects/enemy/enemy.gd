@@ -4,7 +4,7 @@ var cast_angle_last = 0
 var additive_last = 0
 func process_job(delta):
 	if job_idx == 0:
-		set_rotd( -90 )
+		set_rotd( 0 )
 		set_speed( 100 )
 		job_idx += 1
 	if job_idx == 1:

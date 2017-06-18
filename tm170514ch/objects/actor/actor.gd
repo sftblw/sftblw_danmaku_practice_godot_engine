@@ -17,7 +17,7 @@ var job_idx = 0
 
 func _move(delta):
 	var rot = get_rot()
-	var angle_vec = Vector2( cos(rot), -sin(rot) ).normalized()
+	var angle_vec = Vector2(1, 0).rotated(rot-PI/2).normalized()
 	
 	set_pos( get_pos() + angle_vec * get_speed() * delta )
 
