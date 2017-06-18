@@ -82,7 +82,6 @@ __meta__ = {
 
 [node name="layer_enemy" type="Node2D" parent="."]
 
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }

@@ -1,11 +1,16 @@
 extends Node2D
 
 var bullets = []
+var bullets_remove_queue = []
 
 func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
+	for blt in bullets_remove_queue:
+		blt._free_physics()
+		bullets.erase(blt)
+	bullets_remove_queue.clear()
 	for blt in bullets:
 		blt.process_job(delta)
 		blt.process_collision()
@@ -21,3 +26,6 @@ func _draw():
 # fire()에 의해 생성된 노드가 extends enemy_bullet 인 경우에 bullets 노드에서 관리
 func add_bullet(enemy_bullet):
 	bullets.push_back(enemy_bullet)
+	
+func remove_bullet(enemy_bullet):
+	bullets_remove_queue.push_back(enemy_bullet)

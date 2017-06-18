@@ -43,13 +43,18 @@ func fire( bullet_class, rotd, speed, pos = null ):
 		bullet.bullets_manager = self.bullet_manager
 		bullets_manager.add_bullet(bullet)
 	else:
-		print("base_enemy_bullet.gd.fire(): extends nothing")
+		# fired instance extends nothing of base_enemy or base_enemy_bullet
+		breakpoint
 	
 	bullet.fired()
 	
 	return bullet
 
+# init physics
 func fired():
+	init_physics()
+
+func init_physics():
 	set_body( Physics2DServer.body_create(Physics2DServer.BODY_MODE_KINEMATIC) )
 	Physics2DServer.body_set_space(get_body(), bullets_manager.get_world_2d().get_space())
 	Physics2DServer.body_add_shape(get_body(), get_shape().get_rid())
@@ -75,4 +80,9 @@ func process_collision():
 # TODO
 func queue_free():
 	bullets_manager.remove_bullet(self)
-	Physics2DServer.free_rid(get_body())
+	
+func _remove():
+	bullets_manager.remove_bullet(self)
+
+func _free_physics():
+	Physics2DServer.free_rid( get_body() )

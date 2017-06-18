@@ -48,3 +48,6 @@ func __deal_damage(damage):
 	
 	if HP <= 0:
 		queue_free()
+
+func _remove():
+	queue_free()

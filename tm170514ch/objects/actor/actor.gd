@@ -20,6 +20,14 @@ func _move(delta):
 	var angle_vec = Vector2(1, 0).rotated(rot-PI/2).normalized()
 	
 	set_pos( get_pos() + angle_vec * get_speed() * delta )
+	
+	if !remove_requested and _is_outside_game():
+		remove_requested = true
+		_remove()
+
+var remove_requested = false
+func _remove(): ## abstract
+	pass
 
 func fire( bullet_class, rotd, speed, pos ):
 	var bullet
@@ -28,7 +36,8 @@ func fire( bullet_class, rotd, speed, pos ):
 	elif bullet_class extends Script:
 		bullet = bullet_class.new()
 	else:
-		print("error: extends nothing")
+		# fire target class extends nothing of PackedScene or Script.
+		breakpoint
 	
 	# set pos, speed, angle
 	bullet.set_pos( pos )
@@ -54,3 +63,16 @@ func wait_and_next(time, delta):
 			TIMER += time
 			WAIT_ENABLED = true
 	else: TIMER -= delta
+
+#world constants
+const BULLET_WORLD_MARGIN = 128
+const X_LEFT = 400 - BULLET_WORLD_MARGIN
+const X_RIGHT = 400 + 512 + BULLET_WORLD_MARGIN
+const Y_UP = 32 - BULLET_WORLD_MARGIN
+const Y_DOWN = 32 + 656 + BULLET_WORLD_MARGIN
+
+func _is_outside_game():
+	var pos = get_pos()
+	if pos.x < X_LEFT or pos.x > X_RIGHT or pos.y < Y_UP or pos.y > Y_DOWN:
+		return true
+	else: return false
