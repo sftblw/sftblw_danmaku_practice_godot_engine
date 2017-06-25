@@ -52,8 +52,9 @@ func fire( bullet_class, rotd, speed, pos = null ):
 
 # init physics
 func fired():
-	init_physics()
-
+	#init_physics()
+	pass
+var is_physics_initialized = false
 func init_physics():
 	set_body( Physics2DServer.body_create(Physics2DServer.BODY_MODE_KINEMATIC) )
 	Physics2DServer.body_set_space(get_body(), bullets_manager.get_world_2d().get_space())
@@ -61,7 +62,8 @@ func init_physics():
 	
 	Physics2DServer.body_set_layer_mask( get_body(), 8 )
 	Physics2DServer.body_set_collision_mask( get_body(), 0 ) # mask layer 4 (1, 2, 4, 8의 8)
-	process_collision()
+	is_physics_initialized = true
+	#process_collision() #manager에서 호출함. 여기서 하면 이중호출
 
 func draw_to(canvas_item):
 	var texture_offset = -get_texture().get_size()*0.5
@@ -72,6 +74,7 @@ func draw_to(canvas_item):
 ## original functions
 
 func process_collision():
+	if not is_physics_initialized: return
 	var mat = Matrix32()
 	mat.o = get_pos()
 	mat = mat.rotated( get_rot() )

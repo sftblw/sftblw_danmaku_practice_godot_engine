@@ -11,6 +11,10 @@ var job_idx = 0
 ## process
 
 # virtual method
+var _to_process = []
+func _fixed_process(delta):
+	for p in _to_process:
+		p._process(delta)
 # func process_job(delta):
 
 ## basic memeber functions
@@ -53,16 +57,29 @@ func fired(): # 모든 의존성 설정이 다 끝난 뒤의 초기화용 함수
 
 # 일정시간 후에 job_idx += 1
 # 시간동안 지속적으로 호출해야 함
-var WAIT_ENABLED = false
-func wait_and_next(time, delta):
-	if TIMER <= 0:
-		if WAIT_ENABLED:
-			job_idx += 1
-			WAIT_ENABLED = false
-		else:
-			TIMER += time
-			WAIT_ENABLED = true
-	else: TIMER -= delta
+var __timer = {}
+func wait_and_true(time, timer_id):
+	if not __timer.has(timer_id):
+		__timer[timer_id] = CountedTimer.new()
+		_to_process.push_back(__timer[timer_id])
+	if not __timer[timer_id].active:
+		__timer[timer_id].active = true
+		__timer[timer_id].timer = time
+	if __timer[timer_id].matched > 0:
+		__timer[timer_id].matched -= 1
+		return true
+	else: return false
+
+class CountedTimer:
+	var timer = 0
+	var matched = 0
+	var active = false
+	func _process(delta):
+		if active:
+			if timer > 0: timer -= delta
+			if timer <= 0:
+				matched += 1
+				active = false
 
 #world constants
 const BULLET_WORLD_MARGIN = 128
