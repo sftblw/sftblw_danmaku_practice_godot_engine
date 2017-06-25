@@ -15,7 +15,7 @@ func process_job(delta):
 		# 임시로 여러개 생성
 		while wait_and_true(0.1, "fire"):
 			for idx in range(0, 36): # TODO: caster 노드 생성 및 구현해서 대체
-				fire( preload("res://objects/enemy_bullet/diamond_enemy_bullet.gd"), cast_angle_last * 360 / 500.0, 150)
+				fire( preload("res://objects/enemy_bullet/diamond_enemy_bullet_pink.gd"), cast_angle_last * 360 / 500.0, 150)
 				cast_angle_last += 360/3 + additive_last
 				additive_last += 0.1
 		if wait_and_true(1, "job"): job_idx += 1

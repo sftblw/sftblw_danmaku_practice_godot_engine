@@ -24,6 +24,78 @@
      id="defs2">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient4652">
+      <stop
+         style="stop-color:#ff00ff;stop-opacity:1;"
+         offset="0"
+         id="stop4648" />
+      <stop
+         style="stop-color:#ff00ff;stop-opacity:0;"
+         offset="1"
+         id="stop4650" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4640">
+      <stop
+         style="stop-color:#0000ff;stop-opacity:1;"
+         offset="0"
+         id="stop4636" />
+      <stop
+         style="stop-color:#0000ff;stop-opacity:0;"
+         offset="1"
+         id="stop4638" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4628">
+      <stop
+         style="stop-color:#00ffff;stop-opacity:1;"
+         offset="0"
+         id="stop4624" />
+      <stop
+         style="stop-color:#00ffff;stop-opacity:0;"
+         offset="1"
+         id="stop4626" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4618">
+      <stop
+         style="stop-color:#00ff00;stop-opacity:1"
+         offset="0"
+         id="stop4614" />
+      <stop
+         style="stop-color:#00ff00;stop-opacity:0.09917355"
+         offset="1"
+         id="stop4616" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4608"
+       inkscape:collect="always">
+      <stop
+         id="stop4604"
+         offset="0"
+         style="stop-color:#ffff00;stop-opacity:1" />
+      <stop
+         id="stop4606"
+         offset="1"
+         style="stop-color:#ffff00;stop-opacity:0.0137741" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4588">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1;"
+         offset="0"
+         id="stop4584" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:0;"
+         offset="1"
+         id="stop4586" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient5127">
       <stop
          style="stop-color:#000000;stop-opacity:1;"
@@ -86,6 +158,62 @@
        y1="246.20001"
        x2="10.583333"
        y2="254.66667" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4588"
+       id="linearGradient4590"
+       x1="40.216665"
+       y1="288.53334"
+       x2="45.50833"
+       y2="288.53334"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4608"
+       id="linearGradient4602"
+       gradientUnits="userSpaceOnUse"
+       x1="40.216665"
+       y1="288.53334"
+       x2="45.50833"
+       y2="288.53334"
+       gradientTransform="translate(0,21.166667)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4618"
+       id="linearGradient4612"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-6.35,-1.39e-5)"
+       x1="40.216665"
+       y1="288.53334"
+       x2="45.50833"
+       y2="288.53334" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4628"
+       id="linearGradient4630"
+       x1="33.866666"
+       y1="309.7"
+       x2="39.158331"
+       y2="309.7"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4640"
+       id="linearGradient4642"
+       x1="27.516666"
+       y1="288.53334"
+       x2="32.808331"
+       y2="288.53334"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4652"
+       id="linearGradient4654"
+       x1="27.516666"
+       y1="309.7"
+       x2="32.808331"
+       y2="309.7"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -94,9 +222,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.959798"
-     inkscape:cx="166.76354"
-     inkscape:cy="19.406086"
+     inkscape:zoom="2.8"
+     inkscape:cx="312.25325"
+     inkscape:cy="-43.772679"
      inkscape:document-units="mm"
      inkscape:current-layer="g5172"
      showgrid="true"
@@ -105,7 +233,9 @@
      inkscape:window-height="1057"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     inkscape:snap-bbox="true"
+     inkscape:object-paths="true">
     <inkscape:grid
        type="xygrid"
        id="grid4485"
@@ -194,28 +324,257 @@
        inkscape:export-ydpi="96"
        transform="rotate(-90,63.499997,288.53334)">
       <g
-         id="g5176"
+         id="g4532"
+         style="opacity:1"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_red.png"
          inkscape:export-xdpi="96"
-         inkscape:export-ydpi="96"
-         transform="rotate(90,62.441664,288.53334)"
-         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet.png">
+         inkscape:export-ydpi="96">
         <path
            sodipodi:nodetypes="ccccccc"
            inkscape:connector-curvature="0"
            id="path5168"
-           d="m 61.38333,286.41667 1.058333,-1.05833 1.058334,1.05833 v 4.23334 l -1.058334,1.05833 -1.058333,-1.05833 z"
-           style="fill:none;stroke:#ff00ff;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 64.558334,287.47501 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           style="fill:none;stroke:#ff0000;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            inkscape:export-xdpi="96"
            inkscape:export-ydpi="96" />
         <path
            sodipodi:nodetypes="ccccccc"
            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-           d="m 61.38333,286.41667 1.058333,-1.05833 1.058334,1.05833 v 4.23334 l -1.058334,1.05833 -1.058333,-1.05833 z"
+           d="m 64.558334,287.47501 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
            id="path5166"
            inkscape:connector-curvature="0"
            inkscape:export-xdpi="96"
            inkscape:export-ydpi="96" />
       </g>
+      <g
+         id="g4536"
+         style="opacity:1"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_yellow.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <path
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           style="fill:none;stroke:#ffff00;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 64.558334,292.76668 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           id="path4510"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccc" />
+        <path
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:connector-curvature="0"
+           id="path4512"
+           d="m 64.558334,292.76668 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           sodipodi:nodetypes="ccccccc" />
+      </g>
+      <g
+         id="g4540"
+         style="opacity:1"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_green.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <path
+           sodipodi:nodetypes="ccccccc"
+           inkscape:connector-curvature="0"
+           id="path4514"
+           d="m 64.558334,298.05835 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           style="fill:none;stroke:#00ff00;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 64.558334,298.05835 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           id="path4516"
+           inkscape:connector-curvature="0"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <g
+         id="g4544"
+         style="opacity:1"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_sky.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <path
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           style="fill:none;stroke:#00ffff;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 64.558334,303.35002 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           id="path4518"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccc" />
+        <path
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:connector-curvature="0"
+           id="path4520"
+           d="m 64.558334,303.35002 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           sodipodi:nodetypes="ccccccc" />
+      </g>
+      <g
+         id="g4548"
+         style="opacity:1"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_blue.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <path
+           sodipodi:nodetypes="ccccccc"
+           inkscape:connector-curvature="0"
+           id="path4522"
+           d="m 64.558334,308.64169 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           style="fill:none;stroke:#0000ff;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 64.558334,308.64169 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           id="path4524"
+           inkscape:connector-curvature="0"
+           inkscape:export-xdpi="96"
+           inkscape:export-ydpi="96" />
+      </g>
+      <g
+         id="g4552"
+         style="opacity:1"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_pink.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96">
+        <path
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           style="fill:none;stroke:#ff00ff;stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 64.558334,313.93336 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           id="path4526"
+           inkscape:connector-curvature="0"
+           sodipodi:nodetypes="ccccccc" />
+        <path
+           inkscape:export-ydpi="96"
+           inkscape:export-xdpi="96"
+           inkscape:connector-curvature="0"
+           id="path4528"
+           d="m 64.558334,313.93336 1.05833,1.05833 -1.05833,1.05833 h -4.23334 l -1.05833,-1.05833 1.05833,-1.05833 z"
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           sodipodi:nodetypes="ccccccc" />
+      </g>
+      <circle
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ff0000;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         id="path4556"
+         cx="288.53333"
+         cy="-52.916664"
+         r="2.1166666"
+         transform="rotate(90)"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_circle_medium_red.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <circle
+         transform="rotate(90)"
+         r="2.1166666"
+         cy="-52.916664"
+         cx="299.11664"
+         id="circle4560"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ffff00;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_circle_medium_green.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <circle
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#00ff00;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         id="circle4562"
+         cx="309.69995"
+         cy="-52.916664"
+         r="2.1166666"
+         transform="rotate(90)"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_circle_medium_green.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <circle
+         transform="rotate(90)"
+         r="2.1166666"
+         cy="-52.916664"
+         cx="320.28326"
+         id="circle4564"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#00ffff;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_circle_medium_sky.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <circle
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#0000ff;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         id="circle4566"
+         cx="330.86658"
+         cy="-52.916664"
+         r="2.1166666"
+         transform="rotate(90)"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_circle_medium_blue.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <circle
+         transform="rotate(90)"
+         r="2.1166666"
+         cy="-52.916664"
+         cx="341.44989"
+         id="circle4568"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#ff00ff;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_circle_medium_purple.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient4590);stroke-width:2.11666667;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         d="m 44.449997,281.12501 c 0,0 -3.174999,2.11666 -3.174999,7.40833 0,5.29166 3.174999,7.40833 3.174999,7.40833 v -3.175 c 0,0 -1.058333,-2.11666 -1.058333,-4.23333 0,-2.11667 1.058333,-4.23333 1.058333,-4.23333 z"
+         id="path4574"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="csccscc"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_wide_red.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         sodipodi:nodetypes="csccscc"
+         inkscape:connector-curvature="0"
+         id="path4600"
+         d="m 44.449997,302.29169 c 0,0 -3.174999,2.11666 -3.174999,7.40833 0,5.29166 3.174999,7.40833 3.174999,7.40833 v -3.175 c 0,0 -1.058333,-2.11666 -1.058333,-4.23333 0,-2.11667 1.058333,-4.23333 1.058333,-4.23333 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient4602);stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_wide_yellow.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient4612);stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         d="m 38.099998,281.12501 c 0,0 -3.174999,2.11666 -3.174999,7.40833 0,5.29166 3.174999,7.40833 3.174999,7.40833 v -3.175 c 0,0 -1.058333,-2.11666 -1.058333,-4.23333 0,-2.11667 1.058333,-4.23333 1.058333,-4.23333 z"
+         id="path4610"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="csccscc"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_wide_green.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         sodipodi:nodetypes="csccscc"
+         inkscape:connector-curvature="0"
+         id="path4620"
+         d="m 38.099998,302.29167 c 0,0 -3.174999,2.11666 -3.174999,7.40833 0,5.29166 3.174999,7.40833 3.174999,7.40833 v -3.175 c 0,0 -1.058333,-2.11666 -1.058333,-4.23333 0,-2.11667 1.058333,-4.23333 1.058333,-4.23333 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient4630);stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_wide_sky.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient4642);stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         d="m 31.749998,281.12501 c 0,0 -3.174999,2.11666 -3.174999,7.40833 0,5.29166 3.174999,7.40833 3.174999,7.40833 v -3.175 c 0,0 -1.058333,-2.11666 -1.058333,-4.23333 0,-2.11667 1.058333,-4.23333 1.058333,-4.23333 z"
+         id="path4632"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="csccscc"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_wide_blue.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <path
+         sodipodi:nodetypes="csccscc"
+         inkscape:connector-curvature="0"
+         id="path4644"
+         d="m 31.749998,302.29167 c 0,0 -3.174999,2.11666 -3.174999,7.40833 0,5.29166 3.174999,7.40833 3.174999,7.40833 v -3.175 c 0,0 -1.058333,-2.11666 -1.058333,-4.23333 0,-2.11667 1.058333,-4.23333 1.058333,-4.23333 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:url(#linearGradient4654);stroke-width:2.11666656;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+         inkscape:export-filename="G:\GoogleDrive\pliTri\동방 환상\sftblw_탄막제작연습_godot 엔진\tm170514ch\objects\enemy_bullet\diamond_enemy_bullet_wide_pink.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
     </g>
   </g>
 </svg>

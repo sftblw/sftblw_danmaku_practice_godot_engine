@@ -17,3 +17,10 @@ const LEFT_WITH_MARGIN = LEFT - MARGIN
 const RIGHT_WITH_MARGIN = RIGHT + MARGIN
 const UP_WITH_MARGIN = UP - MARGIN
 const DOWN_WITH_MARGIN = DOWN + MARGIN
+
+var __player = null
+func get_player():
+	if __player == null and has_node("/root/Game/layer_player/player"):
+		__player = get_node("/root/Game/layer_player/player")
+	return __player
+	

@@ -37,6 +37,7 @@ class Chapter1 extends "res://flow/chapter.gd":
 	class SineEnemy extends "res://objects/enemy/base_enemy.gd":
 		var sine_offset = 0
 		var fire_counter = 0
+		var rotation = 0
 		func process_job(delta):
 			if job_idx == 0:
 				set_rotd(0)
@@ -50,16 +51,34 @@ class Chapter1 extends "res://flow/chapter.gd":
 					set_speed(-50)
 					job_idx += 1
 			if job_idx == 2:
-				if wait_and_true(0.5, "fire", true):
+				if wait_and_true(0.2, "fire", true):
 					fire_counter += 1
-					for i in range(0, 5):
-						fire(preload("res://objects/enemy_bullet/diamond_enemy_bullet.gd"), (i - 2) * 30, 200)
-				if fire_counter >= 3:
+					for i in range(0, 10):
+						fire(preload("res://objects/enemy_bullet/wide_enemy_bullet_sky.gd"), (i - 5/2) * 7 + rotation, 120 + i * 30)
+				if wait_and_true(0.1, "fire2", true):
+					for i in range(0, 3):
+						var bul = fire(DiamondBulletAfterGo, (i - 5/2) * 7 + rotation, 320 - i * 30)
+						bul.index = i
+					rotation += 360/5
+				if fire_counter >= 5:
 					set_rotd( 45 if get_pos().x > WORLD.LEFT + WORLD.WIDTH/2 else - 45)
 					set_speed( 80 )
 					job_idx += 1
 			_move(delta)
-	
+		class DiamondBulletAfterGo extends "res://objects/enemy_bullet/diamond_enemy_bullet_blue.gd":
+			var index = 0
+			func process_job(delta):
+				if job_idx == 0:
+					if get_speed() > 50:
+						set_speed( max( get_speed() - 200 * delta, 50 ) )
+					if wait_and_true(1, "angle"):
+						set_rot( WORLD.get_player().get_angle_to( get_pos() ) + PI )
+						job_idx += 1
+				if job_idx == 1:
+					if get_speed() < 100 + index * 50:
+						set_speed( min( get_speed() + 200 * delta, 100 + index * 50 ) )
+				_move(delta)
+				
 class Chapter2 extends "res://flow/chapter.gd":
 	func job(delta):
 		pass

@@ -41,6 +41,7 @@ func fire( bullet_class, rotd, speed, pos = null ):
 		bullets_manager.get_parent().add_child(bullet)
 	elif bullet extends base_enemy_bullet_class:
 		bullet.bullets_manager = self.bullet_manager
+		assert(bullets_manager != null)
 		bullets_manager.add_bullet(bullet)
 	else:
 		# fired instance extends nothing of base_enemy or base_enemy_bullet
@@ -58,7 +59,9 @@ var is_physics_initialized = false
 func init_physics():
 	set_body( Physics2DServer.body_create(Physics2DServer.BODY_MODE_KINEMATIC) )
 	Physics2DServer.body_set_space(get_body(), bullets_manager.get_world_2d().get_space())
+	
 	Physics2DServer.body_add_shape(get_body(), get_shape().get_rid())
+	Physics2DServer.body_set_shape_as_trigger(get_body(), 0, true) # performance reason
 	
 	Physics2DServer.body_set_layer_mask( get_body(), 8 )
 	Physics2DServer.body_set_collision_mask( get_body(), 0 ) # mask layer 4 (1, 2, 4, 8의 8)

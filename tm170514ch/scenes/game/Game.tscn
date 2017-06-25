@@ -115,7 +115,6 @@ __meta__ = {
 
 [node name="cage_image" type="Sprite" parent="layer_UI"]
 
-visibility/opacity = 0.5
 texture = ExtResource( 5 )
 centered = false
 __meta__ = {

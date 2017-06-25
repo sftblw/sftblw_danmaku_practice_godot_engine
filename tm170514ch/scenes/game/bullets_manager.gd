@@ -16,6 +16,7 @@ func _process(delta):
 		bullets.erase(blt)
 	bullets_remove_queue.clear()
 	for blt in bullets:
+		blt._fixed_process(delta) # for timer
 		blt.process_job(delta)
 		blt.process_collision()
 		# bullet 도 _fixed_process를 가지지만 노드는 아니므로 직접 호출
@@ -28,7 +29,7 @@ func _draw():
 		blt.draw_to(self)
 
 func _init_physics_differed():
-	MAX_PHYSICS_INIT_PER_FRAME = 60.0 * 3 / get_process_delta_time()
+	MAX_PHYSICS_INIT_PER_FRAME = 60.0 * 10 / get_process_delta_time()
 	if bullets_init_physics_queue.size() > 200: print("TOO MANY UNINITIALIZED PHYSICS!")
 	for i in range(0, min(bullets_init_physics_queue.size(), MAX_PHYSICS_INIT_PER_FRAME)):
 		bullets_init_physics_queue[i].init_physics()
