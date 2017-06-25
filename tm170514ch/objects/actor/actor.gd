@@ -36,7 +36,6 @@ func fired(): # 모든 의존성 설정이 다 끝난 뒤의 초기화용 함수
 
 #world constants
 
-const WORLD = preload("res://constant/world.gd")
 func _is_outside_game():
 	var pos = get_pos()
 	if pos.x < WORLD.LEFT_WITH_MARGIN or pos.x > WORLD.RIGHT_WITH_MARGIN or pos.y < WORLD.UP_WITH_MARGIN or pos.y > WORLD.DOWN_WITH_MARGIN:

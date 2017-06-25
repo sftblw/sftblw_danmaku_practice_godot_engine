@@ -17,15 +17,12 @@ func _fixed_process(delta):
 
 
 class Chapter1 extends "res://flow/chapter.gd":
-	var enemies = []
 	var job_i = 0
 	func job(delta):
 		if wait_and_true(0.5, "job") and job_i < 5:
-			var enemy_instance = preload("res://objects/enemy/enemy.tscn").instance()
-			enemy_instance.set_script(SineEnemy)
-			var enemy_created = fire(enemy_instance, 0, 100, Vector2(WORLD.LEFT + WORLD.WIDTH/(5+1) * (job_i + 1), 0))
+			var enemy_created = fire(preload("res://objects/enemy/enemy.tscn"), 0, 100, Vector2(WORLD.LEFT + WORLD.WIDTH/(5+1) * (job_i + 1), 0), true)
+			enemy_created.set_script(SineEnemy)
 			
-			enemy_created.connect("will_be_removed", self, "remove_enemy")
 			job_i += 1
 	
 	var exit_i = 0
@@ -33,11 +30,9 @@ class Chapter1 extends "res://flow/chapter.gd":
 		if exit_i == 0:
 			if wait_and_true(5, "exit_condition"): exit_i += 1
 		if exit_i == 1:
-			if enemies.size() <= 0: return true
+			return .exit_condition()
+			
 		return false
-	
-	func remove_enemy(enemy):
-		enemies.erase(enemy)
 	
 	class SineEnemy extends "res://objects/enemy/base_enemy.gd":
 		var sine_offset = 0
@@ -55,7 +50,7 @@ class Chapter1 extends "res://flow/chapter.gd":
 					set_speed(-50)
 					job_idx += 1
 			if job_idx == 2:
-				if wait_and_true(0.5, "fire"):
+				if wait_and_true(0.5, "fire", true):
 					fire_counter += 1
 					for i in range(0, 5):
 						fire(preload("res://objects/enemy_bullet/diamond_enemy_bullet.gd"), (i - 2) * 30, 200)

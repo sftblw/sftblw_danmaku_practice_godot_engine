@@ -15,11 +15,8 @@ static func fire( bullet_class, rotd, speed, pos ):
 		bullet = bullet_class.instance()
 	elif bullet_class extends Script:
 		bullet = bullet_class.new()
-	elif bullet_class extends Node2D: # actually bullet_class is bullet
-		bullet = bullet_class
-		WORLD.get_tree().get_root().get_node("/root/Game/layer_enemy").add_child(bullet)
 	else:
-		# fire target class extends nothing of PackedScene or Script.
+		# fire target class extends nothing of PackedScene nor Script nor Node2D
 		breakpoint
 	
 	# set pos, speed, angle
@@ -34,10 +31,12 @@ static func fire( bullet_class, rotd, speed, pos ):
 # 일정시간 후에 job_idx += 1
 # 시간동안 지속적으로 호출해야 함
 var __timer = {}
-func wait_and_true(time, timer_id):
+func wait_and_true(time, timer_id, true_and_wait = false):
 	if not __timer.has(timer_id):
 		__timer[timer_id] = CountedTimer.new()
 		_to_process.push_back(__timer[timer_id])
+		if true_and_wait:
+			__timer[timer_id].matched += 1
 	if not __timer[timer_id].active:
 		__timer[timer_id].active = true
 		__timer[timer_id].timer = time

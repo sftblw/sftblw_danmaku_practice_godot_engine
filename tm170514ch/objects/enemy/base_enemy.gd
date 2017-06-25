@@ -4,7 +4,7 @@ extends "res://objects/actor/actor.gd"
 ## variables
 
 export(int) var HP = 10
-onready var bullets_manager = get_tree().get_root().get_node("Game/layer_enemy_bullet/bullets_manager")
+var bullets_manager = null
 
 ## process
 
@@ -32,7 +32,9 @@ func fire( bullet_class, rotd, speed, pos = null ):
 	if bullet extends base_enemy_class:
 		get_tree().get_root().get_node("Game/layer_enemy_bullet").add_child(bullet)
 	elif bullet extends base_enemy_bullet_class:
-		bullet.bullets_manager = self.bullets_manager
+		if bullets_manager == null:
+			bullets_manager = WORLD.get_node("/root/Game/layer_enemy_bullet/bullets_manager")
+		bullet.bullets_manager = bullets_manager
 		bullets_manager.add_bullet(bullet)
 	else:
 		print("base_enemy.gd.fire(): extends nothing")
