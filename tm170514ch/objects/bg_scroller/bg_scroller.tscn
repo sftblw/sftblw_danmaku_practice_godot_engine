@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://scenes/game/bg/bg.gd" type="Script" id=1]
+[ext_resource path="res://scenes/game/bg/bg_1.png" type="Texture" id=2]
+
+[node name="bg_scroller" type="CanvasLayer"]
+
+layer = -1
+offset = Vector2( 400, 32 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+script/script = ExtResource( 1 )
+move_vector = Vector2( 50, 50 )
+bg_image = ExtResource( 2 )
+
+[node name="bg" type="TextureFrame" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 512.0
+margin/bottom = 656.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+
+

@@ -82,14 +82,10 @@ class CountedTimer:
 				active = false
 
 #world constants
-const BULLET_WORLD_MARGIN = 128
-const X_LEFT = 400 - BULLET_WORLD_MARGIN
-const X_RIGHT = 400 + 512 + BULLET_WORLD_MARGIN
-const Y_UP = 32 - BULLET_WORLD_MARGIN
-const Y_DOWN = 32 + 656 + BULLET_WORLD_MARGIN
 
+const WORLD = preload("res://constant/world.gd")
 func _is_outside_game():
 	var pos = get_pos()
-	if pos.x < X_LEFT or pos.x > X_RIGHT or pos.y < Y_UP or pos.y > Y_DOWN:
+	if pos.x < WORLD.LEFT_WITH_MARGIN or pos.x > WORLD.RIGHT_WITH_MARGIN or pos.y < WORLD.UP_WITH_MARGIN or pos.y > WORLD.DOWN_WITH_MARGIN:
 		return true
 	else: return false

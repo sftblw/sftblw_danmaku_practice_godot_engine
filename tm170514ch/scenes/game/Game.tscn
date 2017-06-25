@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://scenes/game/Game.gd" type="Script" id=1]
-[ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/enemy/enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/game/bullets_manager.gd" type="Script" id=4]
-[ext_resource path="res://scenes/game/bg.png" type="Texture" id=5]
+[ext_resource path="res://objects/bg_scroller/bg_scroller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/enemy/enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/game/bullets_manager.gd" type="Script" id=5]
+[ext_resource path="res://scenes/game/cage.png" type="Texture" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -30,6 +31,12 @@ points = Vector2Array( 1280, 720, 0, 720, 400, 688, 1280, 688 )
 
 script/script = ExtResource( 1 )
 
+[node name="layer_bg" type="Node2D" parent="."]
+
+[node name="bg_scroller" parent="layer_bg" instance=ExtResource( 2 )]
+
+move_vector = Vector2( 0, 50 )
+
 [node name="layer_player_bullet" type="Node2D" parent="."]
 
 __meta__ = {
@@ -38,12 +45,13 @@ __meta__ = {
 
 [node name="layer_player" type="Node2D" parent="."]
 
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="player" parent="layer_player" instance=ExtResource( 2 )]
+[node name="player" parent="layer_player" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 656.84, 627.374 )
 
 [node name="cage" type="StaticBody2D" parent="layer_player"]
 
@@ -86,7 +94,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="enemy" parent="layer_enemy" instance=ExtResource( 3 )]
+[node name="enemy" parent="layer_enemy" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 658, 63 )
 
@@ -98,18 +106,20 @@ __meta__ = {
 
 [node name="bullets_manager" type="Node2D" parent="layer_enemy_bullet"]
 
-script/script = ExtResource( 4 )
+script/script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="layer_UI" type="Node2D" parent="."]
 
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="cage_image" type="Sprite" parent="layer_UI"]
 
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 centered = false
 __meta__ = {
 "_edit_lock_": true
