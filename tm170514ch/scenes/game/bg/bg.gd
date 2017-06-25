@@ -1,3 +1,4 @@
+tool
 extends CanvasLayer
 
 export var move_vector = Vector2(50, 50)
@@ -21,17 +22,18 @@ func set_bg_image(val):
 	var bg = get_node("bg")
 	bg.set_texture(bg_image)
 	bg.set_size(bg_image.get_size())
-	prepare_scroll()
+	#prepare_scroll()
 	set_offset(Vector2(WORLD.LEFT, WORLD.UP))
 	
-	# FIX ME: don't move if this method called in editor (by checking child bg existance)
-	#set_process(false)
+	if get_tree().is_editor_hint():
+		set_process(false)
 	wrap()
 
 func _ready():
 	#set_bg_image(bg_image) #this is needless because already done in edit-time
-	prepare_scroll()
-	set_process(true)
+	if not get_tree().is_editor_hint():
+		prepare_scroll()
+		set_process(true)
 	
 func prepare_scroll():
 	var bg = get_node("bg")
