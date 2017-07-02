@@ -29,8 +29,8 @@ func _draw():
 		blt.draw_to(self)
 
 func _init_physics_differed():
-	MAX_PHYSICS_INIT_PER_FRAME = 60.0 * 10 / get_process_delta_time()
-	if bullets_init_physics_queue.size() > 200: print("TOO MANY UNINITIALIZED PHYSICS!")
+	MAX_PHYSICS_INIT_PER_FRAME = 60.0 * 1000 / get_process_delta_time()
+	if bullets_init_physics_queue.size() > 500: print("TOO MANY UNINITIALIZED PHYSICS!")
 	for i in range(0, min(bullets_init_physics_queue.size(), MAX_PHYSICS_INIT_PER_FRAME)):
 		bullets_init_physics_queue[i].init_physics()
 	for i in range(0, min(bullets_init_physics_queue.size(), MAX_PHYSICS_INIT_PER_FRAME)):
