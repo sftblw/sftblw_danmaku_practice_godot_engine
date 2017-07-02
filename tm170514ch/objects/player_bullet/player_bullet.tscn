@@ -1,8 +1,39 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://objects/player_bullet/player_bullet.gd" type="Script" id=1]
 [ext_resource path="res://objects/player_bullet/player_bullet_trail.png" type="Texture" id=2]
 [ext_resource path="res://objects/player_bullet/player_bullet.png" type="Texture" id=3]
+
+[sub_resource type="CanvasItemShaderGraph" id=3]
+
+_code = {
+"fragment": "vec3 nd1sl3=vec3(SCREEN_UV,0);
+vec3 nd1sl2=vec3(UV,0);
+vec4 rt_default_tex2=tex(TEXTURE,nd1sl2.xy);
+vec3 nd2sl0=rt_default_tex2.rgb;
+float nd2sl1=rt_default_tex2.a;
+float nd4sl1def=1;
+vec3 nd4sl0=nd2sl0*nd4sl1def;
+vec3 nd3sl0=texscreen(nd1sl3.xy);
+float nd5sl1def=0.5;
+vec3 nd5sl0=nd3sl0*nd5sl1def;
+vec3 nd7sl0=max(nd4sl0,nd5sl0);
+COLOR.rgb=nd7sl0;
+",
+"fragment_ofs": 0,
+"light": "",
+"light_ofs": 0,
+"vertex": "",
+"vertex_ofs": 0
+}
+_data = {
+"shaders": [ [ 0, 33, Vector2( 350, 40 ), null, null, [  ], 1, 0, Vector2( 50, 40 ), null, null, [  ] ], [ 0, 33, Vector2( 386, -66 ), null, null, [ 0, 7, 0 ], 1, 0, Vector2( -254, -92 ), null, null, [  ], 2, 32, Vector2( -77, -123 ), null, null, [ 0, 1, 2, 2147483647, 0, null ], 3, 6, Vector2( -78, -1 ), null, [ 0, 0 ], [ 0, 1, 3, 2147483647, 0, null ], 4, 9, Vector2( 112, -107 ), 0, null, [ 0, 2, 0, 2147483647, 0, null, 2147483647, 1, 1.0 ], 5, 9, Vector2( 82, 10 ), 0, null, [ 0, 3, 0, 2147483647, 0, null, 2147483647, 1, 0.5 ], 7, 10, Vector2( 267, -75 ), 3, null, [ 0, 4, 0, 1, 5, 0, 2147483647, 0, null, 2147483647, 1, null ] ], [ 0, 33, Vector2( 350, 40 ), null, null, [  ], 1, 0, Vector2( 50, 40 ), null, null, [  ] ] ]
+}
+
+[sub_resource type="CanvasItemMaterial" id=4]
+
+shader/shader = SubResource( 3 )
+shader/shading_mode = 0
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,7 +43,7 @@ extents = Vector2( 10, 10 )
 [sub_resource type="Animation" id=2]
 
 resource/name = "hit"
-length = 0.5
+length = 1.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
@@ -20,7 +51,7 @@ tracks/0/path = NodePath("shoot_trail:visibility/opacity")
 tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
 "values": [ 1.5, 0.0 ]
@@ -30,7 +61,7 @@ tracks/1/path = NodePath("shoot_trail:transform/scale")
 tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1e-05 ) ]
@@ -40,7 +71,7 @@ tracks/2/path = NodePath("shoot_head:transform/scale")
 tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
@@ -50,7 +81,7 @@ tracks/3/path = NodePath("shoot_head:transform/pos")
 tracks/3/interp = 1
 tracks/3/imported = false
 tracks/3/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 0.25 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -64 ) ]
@@ -60,7 +91,7 @@ tracks/4/path = NodePath("shoot_head:visibility/opacity")
 tracks/4/interp = 1
 tracks/4/imported = false
 tracks/4/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
@@ -70,7 +101,7 @@ tracks/5/path = NodePath(".")
 tracks/5/interp = 1
 tracks/5/imported = false
 tracks/5/keys = {
-"times": FloatArray( 0.5 ),
+"times": FloatArray( 0.3 ),
 "transitions": FloatArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -82,7 +113,7 @@ tracks/6/path = NodePath("shoot_trail:transform/pos")
 tracks/6/interp = 1
 tracks/6/imported = false
 tracks/6/keys = {
-"times": FloatArray( 0, 0.5 ),
+"times": FloatArray( 0, 0.2 ),
 "transitions": FloatArray( 1, 0.25 ),
 "update": 0,
 "values": [ Vector2( -8.5, 8 ), Vector2( -8.5, -48 ) ]
@@ -90,6 +121,7 @@ tracks/6/keys = {
 
 [node name="shoot" type="Area2D"]
 
+material/material = SubResource( 4 )
 input/pickable = true
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -105,6 +137,7 @@ DAMAGE = 1
 [node name="shoot_trail" type="Sprite" parent="."]
 
 visibility/opacity = 1.5
+material/use_parent = true
 transform/pos = Vector2( -8.5, 8 )
 texture = ExtResource( 2 )
 centered = false
@@ -114,6 +147,7 @@ __meta__ = {
 
 [node name="shoot_head" type="Sprite" parent="."]
 
+material/use_parent = true
 texture = ExtResource( 3 )
 
 [node name="visibility" type="VisibilityNotifier2D" parent="."]

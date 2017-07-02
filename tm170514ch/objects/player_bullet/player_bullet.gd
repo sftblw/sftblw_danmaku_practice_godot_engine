@@ -11,6 +11,7 @@ func _process(delta):
 	translate( Vector2( 0, - delta * SPEED ) )
 
 func _on_visibility_exit_screen():
+	set_process(false)
 	queue_free()
 
 

@@ -1,15 +1,26 @@
-# Stage { Chapter, Chapter, ... }
+	# Stage { Chapter, Chapter, ... }
 signal stage_end
 
-var current_chapter = null
+var chapters = []
+var chapter_initialized = false
 
 func _fixed_process(delta):
-	if current_chapter != null:
-		current_chapter = current_chapter._fixed_process(delta)
-		return true
-	if current_chapter == null:
+	if chapters.size() > 0:
+		if not chapter_initialized:
+			chapters[0].enter()
+			chapter_initialized = true
+		chapters[0]._fixed_process(delta)
+	
+	if chapters.size() == 0:
 		emit_signal("stage_end")
-		return false
-		
-func _init(initial_chapter):
-	self.current_chapter = initial_chapter
+
+func pop_chapter():
+	var to_remove = chapters[0]
+	chapters.pop_front()
+	if chapters.size() > 0:
+		chapters[0].connect("chapter_end", self, "pop_chapter")
+
+func push_chapter_by_class(chapter_class):
+	chapters.push_back(chapter_class.new())
+	if chapters.size() == 1:
+		chapters[0].connect("chapter_end", self, "pop_chapter")

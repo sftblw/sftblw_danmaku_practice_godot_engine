@@ -3,3 +3,6 @@ desktop.ini
 
 # godot 무시
 .fscache 
+
+# LMMS 무시
+*.mmpz.bak
