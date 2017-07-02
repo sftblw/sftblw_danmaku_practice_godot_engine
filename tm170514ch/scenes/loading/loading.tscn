@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scenes/loading/loading.gd" type="Script" id=1]
 [ext_resource path="res://scenes/loading/loading_bg.png" type="Texture" id=2]
+[ext_resource path="res://scenes/loading/loading_progress_under.png" type="Texture" id=3]
+[ext_resource path="res://scenes/loading/loading_progress.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -28,6 +30,36 @@ tracks/1/keys = {
 "transitions": FloatArray( 0.258816, 1 ),
 "update": 0,
 "values": [ Vector2( 0, -720 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("progress:visibility/opacity")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 0.267943, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("progress:rect/scale")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 0.392292, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("progress:rect/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 0.392292, 1 ),
+"update": 0,
+"values": [ Vector2( 1046, 486 ), Vector2( 1116, 556 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -71,6 +103,36 @@ tracks/2/keys = {
 "method": "queue_free"
 } ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("progress:visibility/opacity")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 2, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("progress:rect/pos")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 2.63902, 1 ),
+"update": 0,
+"values": [ Vector2( 1116, 556 ), Vector2( 1151, 591 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("progress:rect/scale")
+tracks/5/interp = 1
+tracks/5/imported = false
+tracks/5/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 2.63902, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
 
 [node name="loading" type="Node2D"]
 
@@ -90,7 +152,35 @@ autoplay = ""
 
 [node name="loading_bg" type="Sprite" parent="."]
 
+visibility/opacity = 0.0
+transform/pos = Vector2( 0, -720 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="progress" type="TextureProgress" parent="."]
+
+visibility/opacity = 0.0
+rect/min_size = Vector2( 140, 140 )
+rect/scale = Vector2( 2, 2 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1046.0
+margin/top = 486.0
+margin/right = 1186.0
+margin/bottom = 626.0
+range/min = 0.0
+range/max = 1.0
+range/step = 0.01
+range/page = 0.0
+range/value = 1.0
+range/exp_edit = false
+range/rounded = false
+texture/under = ExtResource( 3 )
+texture/over = null
+texture/progress = ExtResource( 4 )
+mode = 4
+radial_fill/center_offset = Vector2( 0, 0 )
 
 

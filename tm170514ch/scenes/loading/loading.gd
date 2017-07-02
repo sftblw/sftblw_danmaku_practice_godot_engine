@@ -17,9 +17,10 @@ func go(path):
 	
 	anim.play("load_in")
 	thread = Thread.new()
-	thread.start(self, "thread_load")
+	thread.start(self, "thread_load", Thread.PRIORITY_LOW)
 	mutex = Mutex.new()	
 
+onready var progress = get_node("progress")
 func update_progress():
 	var res = mutex.try_lock()
 	if res == ERR_BUSY:
@@ -30,8 +31,12 @@ func update_progress():
 		breakpoint
 	var current = interactive_loader.get_stage()
 	var count = interactive_loader.get_stage_count()
+	
 	mutex.unlock()
+	progress.set_value( float(current) / count )
+	#print("wow")
 	# print(str(current) + "/" + str(count))
+	
 
 func load_end():
 	set_process(false)
@@ -58,11 +63,13 @@ func thread_load(param):
 		var poll_result = interactive_loader.poll()
 	
 		if poll_result == ERR_FILE_EOF: # loading finished:
+			progress.set_value( 1 )
 			call_deferred("load_end") # THIS IS IMPORTANT
 			mutex.unlock()
 			break
 		elif poll_result == OK:
-			call_deferred("update_progress")
+			update_progress()
+			#call_deferred("update_progress")
 		else:
 			breakpoint # TODO: error during load
 		mutex.unlock()
