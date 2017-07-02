@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scenes/loading/loading.gd" type="Script" id=1]
+[ext_resource path="res://scenes/loading/loading_bg.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "load_in"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("loading_bg:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 0.307786, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("loading_bg:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 0.258816, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -720 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "load_out"
+length = 0.3
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("loading_bg:visibility/opacity")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 2.54912, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("loading_bg:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 2.82843, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 720 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = {
+"times": FloatArray( 0, 0.2 ),
+"transitions": FloatArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "remove_vanish_target"
+}, {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="loading" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/load_in = SubResource( 1 )
+anims/load_out = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="loading_bg" type="Sprite" parent="."]
+
+texture = ExtResource( 2 )
+centered = false
+
+
