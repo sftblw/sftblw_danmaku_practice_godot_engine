@@ -1,0 +1,6 @@
+[gd_resource type="ConvexPolygonShape2D" format=1]
+
+[resource]
+
+custom_solver_bias = 0.0
+points = Vector2Array(7.84249, -2.31446, 15.2878, -5.84615, 27.7523, -5.84615, 15.2878, 2.51615, -0.019573, 5.7173)
