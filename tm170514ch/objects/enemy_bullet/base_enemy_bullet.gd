@@ -91,4 +91,14 @@ func _remove():
 	bullets_manager.remove_bullet(self)
 
 func _free_physics():
-	Physics2DServer.free_rid( get_body() )
+	# free only once
+	if get_body() != null:
+		Physics2DServer.free_rid( get_body() )
+		set_body(null)
+		WORLD.enemy_bullet_count -= 1
+		#print(WORLD.enemy_bullet_count)
+	
+
+func _init():
+	WORLD.enemy_bullet_count += 1
+	#print(WORLD.enemy_bullet_count)

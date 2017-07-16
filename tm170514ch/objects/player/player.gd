@@ -7,7 +7,7 @@ export(float) var INVINCIBLE_TIME = 1
 
 export var SHOOT_CLASS = preload("res://objects/player_bullet/player_bullet.tscn")
 
-var life = 2
+var life = 3
 
 func _ready():
 	# set_fixed_process(true)

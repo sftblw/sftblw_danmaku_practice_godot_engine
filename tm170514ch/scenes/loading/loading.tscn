@@ -136,6 +136,7 @@ tracks/5/keys = {
 
 [node name="loading" type="Node2D"]
 
+process/pause_mode = 2
 script/script = ExtResource( 1 )
 
 [node name="anim" type="AnimationPlayer" parent="."]
@@ -181,6 +182,7 @@ texture/under = ExtResource( 3 )
 texture/over = null
 texture/progress = ExtResource( 4 )
 mode = 4
+radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
 

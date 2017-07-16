@@ -43,3 +43,15 @@ func add_bullet(enemy_bullet):
 	
 func remove_bullet(enemy_bullet):
 	bullets_remove_queue.push_back(enemy_bullet)
+	
+# dereference all bullet & free physics
+func _exit_tree():
+	for blt in bullets_init_physics_queue:
+		blt._free_physics()
+	for blt in bullets_remove_queue:
+		blt._free_physics()
+	for blt in bullets:
+		blt._free_physics()
+	bullets_init_physics_queue.clear()
+	bullets_remove_queue.clear()
+	bullets.clear()
