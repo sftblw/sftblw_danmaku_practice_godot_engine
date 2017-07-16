@@ -6,9 +6,11 @@ var interactive_loader = null
 onready var anim = get_node("anim")
 var thread = null
 var mutex = null
+var function = null # 로드된 후의 처리용 함수 (func(root_before, root_after))
 
-func go(path):
+func go(path, function = null):
 	var root = get_tree().get_root()
+	self.function = function
 	
 	# 이미 이 노드가 추가되었으므로 -2가 없앨 노드
 	vanish_target_node = root.get_child( root.get_child_count() - 2 )
@@ -40,6 +42,10 @@ func update_progress():
 
 func load_end():
 	var new_scene_node = interactive_loader.get_resource().instance()
+	
+	if function != null:
+		function.call_func( vanish_target_node, new_scene_node )
+		
 	get_tree().get_root().add_child( new_scene_node )
 	self.raise() # move to the top of parent, 이 경우엔 root의 최상위로 이동
 	vanish_target_node.queue_free()
