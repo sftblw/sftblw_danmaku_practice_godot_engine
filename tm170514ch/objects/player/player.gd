@@ -3,11 +3,15 @@ extends KinematicBody2D
 export(int) var SPEED_FAST = 400
 export(int) var SPEED_SLOW = 200
 export(float) var SHOOT_INTERVAL = 0.1
+export(float) var INVINCIBLE_TIME = 1
 
 export var SHOOT_CLASS = preload("res://objects/player_bullet/player_bullet.tscn")
 
+var life = 2
+
 func _ready():
-	set_fixed_process(true)
+	# set_fixed_process(true)
+	pass
 	
 func _fixed_process(delta):
 	__move(delta)
@@ -50,3 +54,24 @@ func __hit_bullet( body_id, body, body_shape, area_shape ):
 	if !is_fixed_processing() or (get_node("anim").is_playing()	and get_node("anim").get_current_animation() == "dead" ): return
 	set_fixed_process(false)
 	get_node("anim").play("dead")
+	
+func __handle_free():
+	if life > 0:
+		life -= 1
+		get_node("anim").play("enter")
+
+func __handle_create():
+	set_fixed_process(true)
+	
+	get_node("anim").play("invincible")
+	set_invincible()
+
+func set_invincible():
+	get_node("core_area").set_enable_monitoring(false)
+	var invincible_timer = get_node("invincible_timer")
+	invincible_timer.set_wait_time( INVINCIBLE_TIME )
+	invincible_timer.start()
+
+func __handle_invincible_end():
+	get_node("anim").play("default")
+	get_node("core_area").set_enable_monitoring(true)
