@@ -39,16 +39,14 @@ func update_progress():
 	
 
 func load_end():
-	set_process(false)
-	var new_scene = interactive_loader.get_resource().instance()
-	get_tree().get_root().add_child( new_scene )
+	var new_scene_node = interactive_loader.get_resource().instance()
+	get_tree().get_root().add_child( new_scene_node )
 	self.raise() # move to the top of parent, 이 경우엔 root의 최상위로 이동
-	#print("wait thread to finish")
+	vanish_target_node.queue_free()
+	
 	thread.wait_to_finish()
 	anim.play("load_out")
-
-func remove_vanish_target():
-	vanish_target_node.queue_free()
+	
 
 func thread_load(param):
 	while(true):
